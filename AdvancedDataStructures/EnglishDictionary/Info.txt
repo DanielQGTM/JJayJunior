@@ -1,0 +1,21 @@
+
+Daniel Bernal 12/27/24
+
+                                Prompt: 
+Create a C++ program that mimics an English Dictionary utilizing principles
+of Object Oriented Programming. The project requires the implementation of the 
+Dictionary Abstract Data Type (ADT) using templates and an EnglishDictionary class,
+which will utilize an object of the concrete implementation of the Dictionary ADT
+as a data structure to store words and definitions and perform operations on them.
+ 
+                                Summary: 
+The project implements an English Dictionary using Object-Oriented Programming (OOP) 
+principles. I used these principles to store words and their multiple definitions while 
+providing efficient operations for adding, retrieving, and deleting entries. The program 
+uses a templated NodeDictionaryG class as the underlying Abstract Data Type (ADT) that uses
+a doubly linked list for managing key-value pairs. The EnglishDictionary class encapsulates 
+this functionality, enabling operations such as adding definitions, finding words, retrieving 
+ranges of definitions, and removing entries either by key or iterator. The program is further 
+simplified using different classes for nodes-DNodeG, iterators-IteratorG, and ranges-Range. A 
+test of the program that key operations can be dealt with while keeping accurate counts of the 
+total entries and unique words.
