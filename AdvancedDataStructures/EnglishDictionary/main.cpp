@@ -2,8 +2,9 @@
 #include "Entry.h"
 #include <iostream>
 
-int main() {
-    
+int main()
+{
+
     EnglishDictionary dict("My English Dictionary");
 
     dict.add(Entry<std::string, std::string>("word1", "Definition 1a"));
@@ -36,7 +37,8 @@ int main() {
     std::cout << "\nDefinitions for word4 (Backward):\n";
     Range<std::string, std::string> range4 = dict.findAll("word4");
     auto it = range4.getE();
-    while (it != range4.getB()) {
+    while (it != range4.getB())
+    {
         --it;
         std::cout << it.entry().getK() << ": " << it.entry().getV() << std::endl;
     }
