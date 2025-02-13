@@ -1,18 +1,11 @@
+# Use a prebuilt C++ container
 FROM mcr.microsoft.com/devcontainers/cpp:1-debian-11
 
-ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
+# Install additional dependencies (if needed)
+RUN apt-get update && apt-get install -y cmake
 
-# Optionally install the cmake for vcpkg
-COPY .devcontainer/reinstall-cmake.sh /tmp/
+# Set working directory
+WORKDIR /workspaces/JJayJunior
 
-RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
-        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
-    fi \
-    && rm -f /tmp/reinstall-cmake.sh
-
-# [Optional] Uncomment this section to install additional vcpkg ports.
-# RUN su vscode -c "${VCPKG_ROOT}/vcpkg install <your-port-name-here>"
-
-# [Optional] Uncomment this section to install additional packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+# Prevent errors with missing scripts
+RUN touch /tmp/reinstall-cmake.sh && chmod +x /tmp/reinstall-cmake.sh
